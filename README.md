@@ -1,4 +1,4 @@
-## Dynamic Snippets & NGO Modules for Odoo
+# Dynamic Snippets & NGO Modules for Odoo
 This repository contains dynamic snippets and customizations for Odoo's website modules, specifically designed for NGOs.
 
 Modules Overview
