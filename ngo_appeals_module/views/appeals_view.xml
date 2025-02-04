@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_website_appeals" model="ir.actions.act_window">
+        <field name="name">Appeals</field>
+        <field name="res_model">appeal.template</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu for Appeals -->
+    <menuitem id="menu_website_appeals"
+              parent="website.menu_site"
+              sequence="10"
+              name="Appeals"
+              action="action_website_appeals"/>
+
+    <!-- Appeal Template Form View -->
+    <record id="view_appeal_template_form" model="ir.ui.view">
+        <field name="name">appeal.template.form</field>
+        <field name="model">appeal.template</field>
+        <field name="arch" type="xml">
+            <form string="Appeal">
+                   <!-- Button Box -->
+                    <header>
+                        <button class="oe_highlight"
+                                name="action_view_source_payments"
+                                type="object"
+                                string="Payments"
+                                icon="fa-money">
+<!--                            <field string="Payments" name="payment_count" widget="statinfo"/>-->
+                        </button>
+                    </header>
+                <sheet>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="goal"/>
+                        <field name="banner_image" widget="image" class="oe_avatar"/>
+                        <field name="product_id" domain="[('is_appeal', '=', True)]"/>
+                        <field name="appeal_type" widget="selection"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Partners">
+                            <field name="partner_ids">
+                                <list editable="bottom">
+                                    <field name="partner_id"/>
+                                    <field name="contribution"/>
+                                    <field name="payment_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- Appeal Template Tree View -->
+    <record id="view_appeal_template_tree" model="ir.ui.view">
+        <field name="name">appeal.template.tree</field>
+        <field name="model">appeal.template</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="appeal_type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="goal"/>
+            </list>
+        </field>
+    </record>
+</odoo>

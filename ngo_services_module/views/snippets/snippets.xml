@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="external_snippets1" inherit_id="website.snippets" priority="8">
+        <xpath expr="//snippets[@id='snippet_content']" position="inside">
+<!--            <t t-snippet="ngo.appeals_dynamic" string="Appeals Dynamic"-->
+<!--               t-thumbnail="/website/static/src/img/snippets_thumbs/s_image.svg"/>-->
+            <t t-snippet="ngo_services_module.service_dynamic" string="Services Dynamic"
+               t-thumbnail="/website/static/src/img/snippets_thumbs/s_image.svg"/>
+
+        </xpath>
+    </template>
+
+</odoo>

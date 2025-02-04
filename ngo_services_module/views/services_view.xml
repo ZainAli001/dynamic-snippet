@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_website_services" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="res_model">service.template</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu for Services -->
+    <menuitem id="menu_website_services"
+              parent="website.menu_site"
+              sequence="10"
+              name="Services"
+              action="action_website_services"/>
+
+    <!-- Service Template Form View -->
+    <record id="view_service_template_form" model="ir.ui.view">
+        <field name="name">service.template.form</field>
+        <field name="model">service.template</field>
+        <field name="arch" type="xml">
+            <form string="Service">
+                <sheet>
+                    <group>
+                        <field name="service_name"/>
+                        <field name="service_image" widget="image" class="oe_avatar"/>
+                        <field name="service_icon" widget="image" class="oe_avatar"/>
+                        <field name="service_url"/>
+                        <field name="banner_heading"/>
+                        <field name="banner_sub_text"/>
+                        <field name="banner_image" widget="image" class="oe_avatar"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Service Template Tree View -->
+    <record id="view_service_template_tree" model="ir.ui.view">
+        <field name="name">service.template.tree</field>
+        <field name="model">service.template</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="service_name"/>
+                <field name="service_url"/>
+                <field name="banner_heading"/>
+            </list>
+        </field>
+    </record>
+</odoo>

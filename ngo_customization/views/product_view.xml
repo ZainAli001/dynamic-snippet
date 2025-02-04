@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="custom_product_inherit" inherit_id="website_sale.product" name="Custom Product Template Inherit">
+        <!--        button name changing-->
+        <xpath expr="//div[@id='add_to_cart_wrap']//a[@id='add_to_cart']" position="replace">
+            <a data-animation-selector=".o_wsale_product_images" role="button" id="add_to_cart"
+               t-attf-class="btn btn-primary js_check_product a-submit flex-grow-1" href="#">
+
+                Donate Now
+            </a>
+        </xpath>
+
+
+        <!--        hiding the default price if product have custom price -->
+        <xpath expr="//div[@class='js_product js_main_product mb-3']/div[1]" position="replace">
+
+            <t t-if="product.custom_price" class="js_product js_main_product mb-3 mt-5">
+                <p class="mt-5">Enter Donation Amount
+                    <b>₨</b>
+                </p>
+                <div id="custom_price_wrap" class="d-inline-flex align-items-center mb-2">
+                    <input type="number" class="form-control me-2" placeholder="Enter Custom Price"
+                           name="product_custom_input" id="custom_price_input" min="1" step="1"/>
+
+                </div>
+            </t>
+            <t t-else="">
+                <div class="js_product js_main_product mb-3">
+                    <t t-call="website_sale.product_price"/>
+                    <small t-if="'base_unit_price' in combination_info"
+                           class="ms-1 text-muted o_base_unit_price_wrapper d-none"
+                           groups="website_sale.group_show_uom_price">
+                        <t t-call='website_sale.base_unit_price'/>
+                    </small>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <!--    hiding the plus minus div-->
+    <template id="product_quantity" inherit_id="website_sale.product" name="Select Quantity">
+        <!-- Hiding the entire content inside the div -->
+        <xpath expr="//div[contains(@t-attf-class, 'css_quantity')]" position="attributes">
+            <attribute name="t-attf-class">
+                {{ 'd-none' if product.custom_price else 'css_quantity input-group me-2 mb-2 align-middle' }}
+            </attribute>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <template id="appeals_dynamic" name="Dynamic Appeals">
+        <section id="explore-appeals">
+            <div class="container">
+                <div id="appealsCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="dynamic-appeals-carousel"></div>
+
+                    <!-- Carousel Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#appealsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#appealsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+    </template>
+
+
+</odoo>
